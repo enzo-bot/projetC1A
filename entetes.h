@@ -1,5 +1,5 @@
 boolean verifierAlphaNumerique();
-boolean convertirAccents();
-*char chiffrer();
+void convertirAccents();
+*char chiffrer(*void pointeurCle);
 *char dechiffrer();
 void affichage();
