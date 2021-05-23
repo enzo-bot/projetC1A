@@ -24,5 +24,5 @@
 #include <string.h>
 
 void main() {
-    
+    printf("hello world\n");
 }
