@@ -22,7 +22,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <entetes.h>
 
 void main() {
-    
+    printf("hello world\n");
 }

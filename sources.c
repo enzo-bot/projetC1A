@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 void affichage() {
     FILE* fic;
     int lgLigne;
