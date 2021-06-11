@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
+#include <iconv.h>
 
 bool verifierAlphaNumerique(char *texte, char *texteVerifie) {
 
@@ -14,4 +15,5 @@ bool verifierAlphaNumerique(char *texte, char *texteVerifie) {
 	}
 	return true;
 }
+
 
