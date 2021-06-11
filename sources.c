@@ -3,5 +3,17 @@
 #include <string.h>
 
 boolean verifierAlphaNumerique(char *texte, char *texteVerifie) {
-	fopen("table_ASCII", "r");
+	FILE* fichier
+	fichier = fopen("table_ASCII", "r");
+	if (fichier == NULL) {
+		printf("Erreur à l'ouverture du fichier table_ASCII\n");
+	} else {
+		printf("Ouverture du fichier");
+		fclose(fichier);
+	}
+	
+
+
+
+	fclose(fichier);
 }
