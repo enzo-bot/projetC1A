@@ -22,8 +22,33 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <entetes.h>
+#include <stdbool.h>
+#include "entetes.h"
+
 
 void main() {
-    printf("hello world\n");
+    printf("test1\n");
+
+    char c1 = 'Q';
+    printf("Result when alphabet is passed: %d\n", isalpha(c1));
+
+    char c2 = 'é';
+    printf("Result when alphabet is passed: %d\n", isalpha(c2));
+    printf("Result when isspace is passed: %d\n", isspace(c2));
+    char c3 = ' ';
+    printf("Result when alphabet is passed: %d\n", isalpha(c3));
+    printf("Result when isspace is passed: %d\n", isspace(c3));
+
+    printf("---------------------------------------------------\n");
+    printf("test2\n");
+    char c4 = 'e ';
+    printf("Result when alphabet is passed: %d\n", isalpha(c4));
+    printf("Result when isspace is passed: %d\n", isspace(c4));
+
+    printf("---------------------------------------------------\n");
+    printf("test3\n");
+    if (isspace(c3)){printf("c3 est un espace\n");}
+    if (isspace(c1)){printf("c1 est un espace\n");} else {printf("c1 n'est pas un espace\n");}
+    
+
 }

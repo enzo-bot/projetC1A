@@ -2,15 +2,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 
-boolean verifierAlphaNumerique(char *texte, char *texteVerifie) {
+bool verifierAlphaNumerique(char *texte, char *texteVerifie) {
 
-	for (int i = 0 ; i < strlen(texte); i++)
+	for (int i = 0 ; *(texte + i) != '\0'; i++)
 	{
-		if (isanum == 0){
+		if (isalnum(*(texte + i)) && !isspace(*(texte + i))){
 			return false;
 		}
 	}
 	return true;
-	fclose(fichier);
 }
+
