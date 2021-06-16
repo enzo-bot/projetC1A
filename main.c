@@ -27,6 +27,41 @@
 
 
 void main() {
+    FILE* fic;
+	int lgLigne;
+	fic = fopen("table_ASCII.txt", "r");
+
+	if (fic == NULL) {
+		printf("Erreur à l'ouverture du fichier texte\n");
+	} else {
+		char ligne [216];
+        char*pligne = NULL;
+        size_t taille;
+        int i = 0;
+        lgLigne = getline(&pligne,&taille, fic);
+
+        while (lgLigne != -1) {
+			//printf("%s", pligne);
+            ligne[i] = *pligne;
+            printf("%c\n", ligne[i]);
+            i++;
+			lgLigne = getline(&pligne, &taille, fic);
+		}
+
+        
+        fflush(stdout);
+	    free(pligne);
+	    fclose(fic);
+    }
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////
+
+/*
     printf("test1\n");
 
     char c1 = 'Q';
@@ -64,5 +99,5 @@ void main() {
     char texte2 = "fezqfdvsd  à";
 
     if (verifierAlphaNumerique(texte1,texte1)){printf("oui");}else{printf("non");}
-    if (verifierAlphaNumerique(texte2,texte2)){printf("oui");}else{printf("non");}
+    if (verifierAlphaNumerique(texte2,texte2)){printf("oui");}else{printf("non");} */
 }
