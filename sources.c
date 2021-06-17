@@ -29,11 +29,23 @@ int verifierAlphaNumerique(char *texte) {
 	return TRUE;
 }
 
-char* chiffrerCesar(char *texteSansAccents, int decalage) {
+char* chiffrerCesar(char *texte, int decalage, char *texteChiffre) {
+	int place;
+	for (int i = 0 ; *(texte + i) != '\0'; i++) {
+		if (texte[i] >= 'a' && texte[i] <= 'z') {
+			place = texte[i] - 'a';
+			place = (place+decalage) % 26;
+			if (place < 0 ) place += 26;
 
-	for (int i = 0 ; *(texteSansAccents + i) != '\0'; i++) {
-		if (texteSansAccents[i] >= 'a' && texteSansAccents[i] <= 'z') {
-			
+			texteChiffre[i] = 'a' + place;
+		} else if (texte[i] >= 'A' && texte[i] <= 'Z') {
+			place = texte[i] - 'A';
+			place = (place+decalage) % 26;
+			if (place < 0 ) place += 26;
+
+			texteChiffre[i] = 'A' + place;
+		} else {
+			texteChiffre[i] = texte[i];
 		}
 	}
 

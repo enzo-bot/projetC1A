@@ -30,7 +30,7 @@
 #define FALSE 0
 
 void main() {
-    FILE* fic;
+    /*FILE* fic;
 	int lgLigne;
 	fic = fopen("table_ASCII.txt", "r");
 
@@ -54,9 +54,24 @@ void main() {
         fflush(stdout);
 	    free(pligne);
 	    fclose(fic);
-    }
+    } */
 
+    char* texteEntree = NULL;
+	char* texteChiffre = NULL;
+    int decalage;
 
+    
+    size_t taille = 0;
+	int nbCharlu = 0;
+	printf("Saisissez votre texte\n");
+	nbCharlu = getline(&texteEntree, &taille, stdin);
+
+    printf("Quel décalage souhaitez-vous ?\n");
+    decalage = getchar();
+
+    chiffrerCesar(texteEntree, decalage, texteChiffre);
+    printf("Message en entrée : %s\n", texteEntree);
+    printf("Message chiffré avec un décalage de %d : %s\n", decalage, texteChiffre);
 
 
 
