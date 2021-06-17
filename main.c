@@ -51,7 +51,6 @@ void main() {
 			lgLigne = getline(&pligne, &taille, fic);
 		}
 
-        
         fflush(stdout);
 	    free(pligne);
 	    fclose(fic);

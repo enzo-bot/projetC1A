@@ -31,9 +31,10 @@ int verifierAlphaNumerique(char *texte) {
 
 char* chiffrerCesar(char *texteSansAccents, int decalage) {
 
-	for (int i = 0 ; *(texteSansAccents + i) != '\0'; i++)
-	{
-
+	for (int i = 0 ; *(texteSansAccents + i) != '\0'; i++) {
+		if (texteSansAccents[i] >= 'a' && texteSansAccents[i] <= 'z') {
+			
+		}
 	}
 
 }
