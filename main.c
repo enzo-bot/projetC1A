@@ -56,8 +56,8 @@ void main() {
 	    fclose(fic);
     } */
 
-    char* texteEntree = NULL;
-	char* texteChiffre = NULL;
+    char *texteEntree = NULL;
+	char *texteChiffre = NULL;
     int decalage;
 
     
@@ -68,6 +68,7 @@ void main() {
 
     printf("Quel décalage souhaitez-vous ?\n");
     decalage = getchar();
+    printf("valeur du décalage : %d\n", decalage);
 
     chiffrerCesar(texteEntree, decalage, texteChiffre);
     printf("Message en entrée : %s\n", texteEntree);
@@ -109,7 +110,7 @@ void main() {
     printf("%d\n",c2);
 
     printf("%c\n",c1);
-    printf("%d\n",c1);*/
+    printf("%d\n",c1);
     printf("---------------------------------------------------\n");
     printf("test5\n");
     char char1 = 'a';
@@ -129,6 +130,6 @@ void main() {
 
     if (verifierAlphaNumerique(string1) == TRUE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
     if (verifierAlphaNumerique(string2) == TRUE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
-    if (verifierAlphaNumerique(string3) == FALSE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
+    if (verifierAlphaNumerique(string3) == FALSE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");} */
 
 }
