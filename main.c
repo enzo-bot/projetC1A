@@ -26,6 +26,9 @@
 #include "entetes.h"
 
 
+#define TRUE 1
+#define FALSE 0
+
 void main() {
     FILE* fic;
 	int lgLigne;
@@ -92,12 +95,26 @@ void main() {
     printf("%d\n",c2);
 
     printf("%c\n",c1);
-    printf("%d\n",c1);
+    printf("%d\n",c1);*/
     printf("---------------------------------------------------\n");
     printf("test5\n");
-    char texte1 = "fezqfdvs d";
-    char texte2 = "fezqfdvsd  à";
+    char char1 = 'a';
+    char char2 = '0';
+    char char3 = '$';
 
-    if (verifierAlphaNumerique(texte1,texte1)){printf("oui");}else{printf("non");}
-    if (verifierAlphaNumerique(texte2,texte2)){printf("oui");}else{printf("non");} */
+    if (estAlphaNum(char1) == TRUE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
+    if (estAlphaNum(char2) == TRUE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
+    if (estAlphaNum(char3) == FALSE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
+
+    printf("---------------------------------------------------\n");
+    printf("test6\n");
+    char string1[] = "adzertj  sdvr";
+    char string2[] = "0";
+    char string3[] = "$grthfgd vs";
+
+
+    if (verifierAlphaNumerique(string1) == TRUE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
+    if (verifierAlphaNumerique(string2) == TRUE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
+    if (verifierAlphaNumerique(string3) == FALSE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
+
 }

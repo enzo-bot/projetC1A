@@ -1,4 +1,5 @@
-bool verifierAlphaNumerique(char *texte, char *texteVerifie);
+int estAlphaNum(int c);
+int verifierAlphaNumerique(char *texte);
 char* convertirAccents(char *texteVerifie);
 char* chiffrerCesar(char *texteSansAccents, int decalage);
 char* chiffrerVigenere(char *texteSansAccents, char *cle);

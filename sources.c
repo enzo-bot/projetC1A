@@ -2,18 +2,38 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
 #include <iconv.h>
 
-bool verifierAlphaNumerique(char *texte, char *texteVerifie) {
+#define TRUE 1
+#define FALSE 0
 
-	for (int i = 0 ; *(texte + i) != '\0'; i++)
-	{
-		if (isalnum(*(texte + i)) && !isspace(*(texte + i))){
-			return false;
+int estAlphaNum(int charac) {
+	static char const alphanum[] ="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜàáâãäçèéêëìíîïñòóôõöùúûüýÿ ";
+	for (int i = 0; i < sizeof alphanum; i++) {
+		if (charac == alphanum[i]) {
+			return TRUE;
 		}
 	}
-	return true;
+	return FALSE;
 }
 
+int verifierAlphaNumerique(char *texte) {
 
+	
+	for (int i = 0 ; *(texte + i) != '\0'; i++)
+	{
+		if (!estAlphaNum(*(texte + 1))){
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+
+char* chiffrerCesar(char *texteSansAccents, int decalage) {
+
+	for (int i = 0 ; *(texteSansAccents + i) != '\0'; i++)
+	{
+
+	}
+
+}
