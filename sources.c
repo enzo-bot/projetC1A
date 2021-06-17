@@ -22,7 +22,7 @@ int verifierAlphaNumerique(char *texte) {
 	
 	for (int i = 0 ; *(texte + i) != '\0'; i++)
 	{
-		if (!estAlphaNum(*(texte + 1))){
+		if (!estAlphaNum(*(texte + i))){
 			return FALSE;
 		}
 	}
