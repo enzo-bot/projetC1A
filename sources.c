@@ -49,4 +49,29 @@ char* chiffrerCesar(char *texte, int decalage, char *texteChiffre) {
 		}
 	}
 
+
+	char* dechiffrerCesar(char *texteChiffre, int decalage, char *texteDechiffre){
+		int place;
+		
+		for (int i = 0 ; *(texte + i) != '\0'; i++) {
+			if (texte[i] >= 'a' && texte[i] <= 'z') {
+				place = texte[i] - 'a';
+				place = (place-decalage) % 26;
+				if (place < 0 ) place += 26;
+
+				texteChiffre[i] = 'a' + place;
+			} else if (texte[i] >= 'A' && texte[i] <= 'Z') {
+				place = texte[i] - 'A';
+				place = (place-decalage) % 26;
+				if (place < 0 ) place += 26;
+
+				texteChiffre[i] = 'A' + place;
+			} else {
+				texteChiffre[i] = texte[i];
+			}
+		}
+
+
+	}
+
 }
