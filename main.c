@@ -76,7 +76,7 @@ void main() {
     sscanf(decalageEntree, "%d", &decalage);
     printf("valeur du décalage : %d\n", decalage);
 
-    chiffrerCesar(texteEntree, decalage, texteChiffre);
+    dechiffrerCesar(texteEntree, decalage, texteChiffre);
     printf("Message en entrée : %s\n", texteEntree);
     printf("Message chiffré avec un décalage de %d : %s\n", decalage, texteChiffre);
 
