@@ -27,6 +27,90 @@ int verifierAlphaNumerique(char *texte) {
 	return TRUE;
 }
 
+char* convertirAccents(char *texteVerifie){
+
+    for (int i = 0 ; (texteVerifie + i) != '\0'; i++)
+    {
+
+        switch((texteVerifie + i))
+        {
+            case 'À' ... 'Ä' :
+                *(texteVerifie + i) = 'A';
+                break;
+
+            case 'È' ... 'Ë' :
+                *(texteVerifie + i) = 'E';
+                break;
+
+            case 'Ì' ... 'Ï' :
+                *(texteVerifie + i) = 'I';
+                break;
+
+            case 'Ò' ... 'Ö' :
+                *(texteVerifie + i) = 'O';
+                break;
+
+            case 'Ù' ... 'Ü' :
+                *(texteVerifie + i) = 'U';
+                break;
+
+            case 'Ý' :
+                *(texteVerifie + i) = 'Y';
+                break;
+
+            case 'Ç' :
+                *(texteVerifie + i) = 'C';
+                break;
+
+            case 'Ñ' :
+                *(texteVerifie + i) = 'N';
+                break;
+
+            case 'à' ... 'ä' :
+                *(texteVerifie + i) = 'a';
+                break;
+
+            case 'è' ... 'ë' :
+                *(texteVerifie + i) = 'e';
+                break;
+
+            case 'ì' ... 'ï' :
+                *(texteVerifie + i) = 'i';
+                break;
+
+            case 'ò' ... 'ö' :
+                *(texteVerifie + i) = 'o';
+                break;
+
+            case 'ù' ... 'ü' :
+                *(texteVerifie + i) = 'u';
+                break;
+
+            case 'ç' :
+                *(texteVerifie + i) = 'c';
+                break;
+
+            case 'ñ' :
+                *(texteVerifie + i) = 'n';
+                break;
+
+            case 'ý' :
+                *(texteVerifie + i) = 'y';
+                break;
+
+            case 'ÿ' :
+                *(texteVerifie + i) = 'y';
+                break;
+
+
+            default :
+                *(texteVerifie + i) = *(texteVerifie + i);
+                break;
+
+        }
+
+    }
+
 	void chiffrerCesar(char *texte, int decalage, char *texteChiffre) {
 	int place;
 	printf("test1\n");
