@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
-#include <iconv.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -29,7 +27,7 @@ int verifierAlphaNumerique(char *texte) {
 	return TRUE;
 }
 
-char* chiffrerCesar(char *texte, int decalage, char *texteChiffre) {
+	void chiffrerCesar(char *texte, int decalage, char *texteChiffre) {
 	int place;
 	printf("test1\n");
 	for (int i = 0 ; *(texte + i) != '\0'; i++) {
@@ -60,36 +58,24 @@ char* chiffrerCesar(char *texte, int decalage, char *texteChiffre) {
 	}
 
 
-	char* dechiffrerCesar(char *texteChiffre, int decalage, char *texteDechiffre){
+	void dechiffrerCesar(char *texteChiffre, int decalage, char *texteDechiffre){
 		int place;
-		printf("test1\n");
 		for (int i = 0 ; *(texte + i) != '\0'; i++) {
 			if (texteChiffre[i] >= 'a' && texteChiffre[i] <= 'z') {
-				printf("test2\n");
 				place = texteChiffre[i] - 'a';
-				printf("test3\n");
 				place = (place-decalage) % 26;
-				printf("test4\n");
 				if (place < 0 ) place += 26;
-				printf("test5\n");
 				texteDechiffre[i] = 'a' + place;
-				printf("test6\n");
 			} else if (texteChiffre[i] >= 'A' && texteChiffre[i] <= 'Z') {
-				printf("test7\n");
 				place = texteChiffre[i] - 'A';
-				printf("test8\n");
 				place = (place-decalage) % 26;
-				printf("test9\n");
 				if (place < 0 ) place += 26;
-				printf("test10\n");
 				texteDechiffre[i] = 'A' + place;
-				printf("test11\n");
 			} else {
 				texteDechiffre[i] = texteChiffre[i];
-				printf("test12\n");
 			}
 
-	}
+		}
 
-}
+	}
 }
