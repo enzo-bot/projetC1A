@@ -29,7 +29,6 @@
 #define TRUE 1
 #define FALSE 0
 
-void getText(char tabChar[], int size);
 void clearBuffer();
 
 void main() {
@@ -41,7 +40,8 @@ void main() {
     if (texteDechiffre == NULL) exit(EXIT_FAILURE);
     
     int decalage;
-    char decalageEntree[2];
+    char *decalageEntree = (char *) calloc(0,sizeof(char));
+    if (decalageEntree == NULL) exit(EXIT_FAILURE);
 
     char action;
 
@@ -56,14 +56,16 @@ void main() {
                 scanf("%s", texteEntree);
 
                 if (verifierAlphaNumerique(texteEntree) == TRUE) {
-                    printf("Quel décalage souhaitez-vous ? (entre 1 et 25) (format : XX)\n");
-                    getText(decalageEntree, 2);
+                    printf("Quel décalage souhaitez-vous ? (entre 1 et 25)\n");
+                    scanf("%s", decalageEntree);
                     sscanf(decalageEntree, "%d", &decalage);
                     printf("valeur du décalage : %d\n", decalage);
 
                     chiffrerCesar(texteEntree, decalage, texteChiffre);
                     printf("Message en entrée : %s\n", texteEntree);
                     printf("Message chiffré avec un décalage de %d : %s\n", decalage, texteChiffre);
+
+                    clearBuffer();
                 } else {
                     printf("Il y a des caractères spéciaux dans votre texte\n");
                     action = 0;
@@ -74,13 +76,15 @@ void main() {
 	            scanf("%s", texteEntree);
 
                 if (verifierAlphaNumerique(texteEntree) == TRUE) {
-                    printf("Quel décalage souhaitez-vous ? (entre 1 et 25) (format : XX)\n");
-                    getText(decalageEntree, 2);
+                    printf("Quel décalage souhaitez-vous ? (entre 1 et 25)\n");
+                    scanf("%s", decalageEntree);
                     sscanf(decalageEntree, "%d", &decalage);
                     printf("valeur du décalage : %d\n", decalage);
 
                     dechiffrerCesar(texteEntree, decalage, texteDechiffre);
                     printf("Message déchiffré avec un décalage de %d : %s\n", decalage, texteDechiffre);
+
+                    clearBuffer();
                 } else {
                     printf("Il y a des caractères spéciaux dans votre texte\n");
                     action = 0;
@@ -92,6 +96,7 @@ void main() {
     free(texteEntree);
     free(texteChiffre);
     free(texteDechiffre);
+    free(decalageEntree);
 
 }
 
@@ -100,12 +105,4 @@ void clearBuffer() {
 	while (c != '\n') {
 		c = getchar();
 	}
-}
-void getText(char tabChar[], int size) {
-	int i = 0;
-	while (i<size) {
-		tabChar[i] = getchar();
-		i++;
-	}
-	clearBuffer();
 }
