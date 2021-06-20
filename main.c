@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <malloc.h>
 #include "entetes.h"
 
 
@@ -41,9 +42,6 @@ void main() {
     
     int decalage;
     char decalageEntree[2];
-
-    size_t taille = 0;
-	int nbCharlu = 0;
     
     char action;
 
@@ -55,8 +53,7 @@ void main() {
         switch (action) {
             case '1' :
 	            printf("Saisissez votre texte\n");
-	            getline(&texteEntree, &taille, stdin);
-                
+                scanf("%s", texteEntree);
 
                 if (verifierAlphaNumerique(texteEntree) == TRUE) {
                     printf("Quel décalage souhaitez-vous ? (entre 1 et 25) (format : XX)\n");
