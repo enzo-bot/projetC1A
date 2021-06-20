@@ -54,6 +54,7 @@ void main() {
             case '1' :
 	            printf("Saisissez votre texte\n");
                 scanf("%s", texteEntree);
+                clearBuffer();
 
                 if (verifierAlphaNumerique(texteEntree) == TRUE) {
                     printf("Quel décalage souhaitez-vous ? (entre 1 et 25)\n");
@@ -74,6 +75,7 @@ void main() {
             case '2' :
 	            printf("Saisissez votre texte\n");
 	            scanf("%s", texteEntree);
+                clearBuffer();
 
                 if (verifierAlphaNumerique(texteEntree) == TRUE) {
                     printf("Quel décalage souhaitez-vous ? (entre 1 et 25)\n");
