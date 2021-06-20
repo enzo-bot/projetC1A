@@ -128,11 +128,12 @@ int verifierAlphaNumerique(char *texte) {
 			texteChiffre[i] = texte[i];
 		}
 	}
+	}
 
 
 	void dechiffrerCesar(char *texteChiffre, int decalage, char *texteDechiffre){
 		int place;
-		for (int i = 0 ; *(texte + i) != '\0'; i++) {
+		for (int i = 0 ; *(texteChiffre + i) != '\0'; i++) {
 			if (texteChiffre[i] >= 'a' && texteChiffre[i] <= 'z') {
 				place = texteChiffre[i] - 'a';
 				place = (place-decalage) % 26;
@@ -144,10 +145,9 @@ int verifierAlphaNumerique(char *texte) {
 				if (place < 0 ) place += 26;
 				texteDechiffre[i] = 'A' + place;
 			} else {
-				texteDechiffre[i] = texteChiffre[i];
+				texteDechiffre[i] = texteDechiffre[i];
 			}
 
 		}
 
 	}
-}

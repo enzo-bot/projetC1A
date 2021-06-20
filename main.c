@@ -41,8 +41,7 @@ void main() {
     if (texteDechiffre == NULL) exit(EXIT_FAILURE);
     
     int decalage;
-    char *decalageEntree = (char *) calloc(0,sizeof(char));
-    if (texteDechiffre == NULL) exit(EXIT_FAILURE);
+    char decalageEntree[2];
 
     char action;
 
@@ -102,7 +101,6 @@ void clearBuffer() {
 		c = getchar();
 	}
 }
-
 void getText(char tabChar[], int size) {
 	int i = 0;
 	while (i<size) {
