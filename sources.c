@@ -27,7 +27,7 @@ int verifierAlphaNumerique(char *texte) {
 	return TRUE;
 }
 
-char* convertirAccents(char *texteVerifie){
+/*char* convertirAccents(char *texteVerifie){
 
     for (int i = 0 ; (texteVerifie + i) != '\0'; i++)
     {
@@ -109,35 +109,23 @@ char* convertirAccents(char *texteVerifie){
 
         }
 
-    }
+    }*/
 
 	void chiffrerCesar(char *texte, int decalage, char *texteChiffre) {
 	int place;
-	printf("test1\n");
 	for (int i = 0 ; *(texte + i) != '\0'; i++) {
 		if (texte[i] >= 'a' && texte[i] <= 'z') {
-			printf("test2\n");
 			place = texte[i] - 'a';
-			printf("test3\n");
 			place = (place+decalage) % 26;
-			printf("test4\n");
 			if (place < 0 ) place += 26;
-			printf("test5\n");
 			texteChiffre[i] = 'a' + place;
-			printf("test6\n");
 		} else if (texte[i] >= 'A' && texte[i] <= 'Z') {
-			printf("test7\n");
 			place = texte[i] - 'A';
-			printf("test8\n");
 			place = (place+decalage) % 26;
-			printf("test9\n");
 			if (place < 0 ) place += 26;
-			printf("test10\n");
 			texteChiffre[i] = 'A' + place;
-			printf("test11\n");
 		} else {
 			texteChiffre[i] = texte[i];
-			printf("test12\n");
 		}
 	}
 
