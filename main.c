@@ -41,8 +41,9 @@ void main() {
     if (texteDechiffre == NULL) exit(EXIT_FAILURE);
     
     int decalage;
-    char decalageEntree[2];
-    
+    char *decalageEntree = (char *) calloc(0,sizeof(char));
+    if (texteDechiffre == NULL) exit(EXIT_FAILURE);
+
     char action;
 
     while (action != '0') {
@@ -71,7 +72,7 @@ void main() {
                 break;
             case '2' :
 	            printf("Saisissez votre texte\n");
-	            nbCharlu = getline(&texteEntree, &taille, stdin);
+	            scanf("%s", texteEntree);
 
                 if (verifierAlphaNumerique(texteEntree) == TRUE) {
                     printf("Quel décalage souhaitez-vous ? (entre 1 et 25) (format : XX)\n");
@@ -79,7 +80,7 @@ void main() {
                     sscanf(decalageEntree, "%d", &decalage);
                     printf("valeur du décalage : %d\n", decalage);
 
-                    //dechiffrerCesar(texteEntree, decalage, texteDechiffre);
+                    dechiffrerCesar(texteEntree, decalage, texteDechiffre);
                     printf("Message déchiffré avec un décalage de %d : %s\n", decalage, texteDechiffre);
                 } else {
                     printf("Il y a des caractères spéciaux dans votre texte\n");
