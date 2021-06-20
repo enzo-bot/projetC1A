@@ -29,6 +29,9 @@
 #define TRUE 1
 #define FALSE 0
 
+void getText(char tabChar[], int size);
+void clearBuffer();
+
 void main() {
     /*FILE* fic;
 	int lgLigne;
@@ -56,18 +59,21 @@ void main() {
 	    fclose(fic);
     } */
 
-    char *texteEntree = NULL;
-	char *texteChiffre = NULL;
+    char *texteEntree = (char *) calloc(0,sizeof(char));
+    if (texteEntree == NULL) exit(EXIT_FAILURE);
+	char *texteChiffre = (char *) calloc(0,sizeof(char));
+    if (texteChiffre == NULL) exit(EXIT_FAILURE);
     int decalage;
-
+    char decalageEntree[2];
     
     size_t taille = 0;
 	int nbCharlu = 0;
 	printf("Saisissez votre texte\n");
 	nbCharlu = getline(&texteEntree, &taille, stdin);
 
-    printf("Quel décalage souhaitez-vous ?\n");
-    decalage = getchar();
+    printf("Quel décalage souhaitez-vous ? (entre 1 et 25) (format : XX)\n");
+    getText(decalageEntree, 2);
+    sscanf(decalageEntree, "%d", &decalage);
     printf("valeur du décalage : %d\n", decalage);
 
     chiffrerCesar(texteEntree, decalage, texteChiffre);
@@ -75,7 +81,8 @@ void main() {
     printf("Message chiffré avec un décalage de %d : %s\n", decalage, texteChiffre);
 
 
-
+    free(texteEntree);
+    free(texteChiffre);
 
 /////////////////////////////////////////////////////////////////
 
@@ -132,4 +139,20 @@ void main() {
     if (verifierAlphaNumerique(string2) == TRUE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");}
     if (verifierAlphaNumerique(string3) == FALSE) {printf("C'est good bg\n");} else {printf("C'est pas good\n");} */
 
+}
+
+void clearBuffer() {
+	char c = getchar();
+	while (c != '\n') {
+		c = getchar();
+	}
+}
+
+void getText(char tabChar[], int size) {
+	int i = 0;
+	while (i<size) {
+		tabChar[i] = getchar();
+		i++;
+	}
+	clearBuffer();
 }
